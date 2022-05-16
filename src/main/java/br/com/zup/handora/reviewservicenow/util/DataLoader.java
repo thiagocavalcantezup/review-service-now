@@ -5,6 +5,8 @@ import java.util.Map;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import br.com.zup.handora.reviewservicenow.projeto.Projeto;
+import br.com.zup.handora.reviewservicenow.projeto.ProjetoRepository;
 import br.com.zup.handora.reviewservicenow.usuario.Usuario;
 import br.com.zup.handora.reviewservicenow.usuario.UsuarioRepository;
 
@@ -12,26 +14,40 @@ import br.com.zup.handora.reviewservicenow.usuario.UsuarioRepository;
 public class DataLoader implements CommandLineRunner {
 
     private final UsuarioRepository usuarioRepository;
+    private final ProjetoRepository projetoRepository;
 
-    public DataLoader(UsuarioRepository usuarioRepository) {
+    public DataLoader(UsuarioRepository usuarioRepository, ProjetoRepository projetoRepository) {
         this.usuarioRepository = usuarioRepository;
+        this.projetoRepository = projetoRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
         if (usuarioRepository.count() == 0) {
-            load();
+            loadUsuarios();
+        }
+
+        if (projetoRepository.count() == 0) {
+            loadProjetos();
         }
     }
 
-    private void load() {
-        Usuario usuario1 = new Usuario("Thiago", Map.of(4321L, "Dell Latitude 1234"), "ACADEMY");
-        Usuario usuario2 = new Usuario("Martina", Map.of(4321L, "Dell Latitude 1234"), "ACADEMY");
+    private void loadUsuarios() {
+        Usuario usuario1 = new Usuario("Thiago", Map.of(4321L, "Dell Latitude 1234"), "ACADEMIA");
+        Usuario usuario2 = new Usuario("Marina", Map.of(4321L, "Dell Latitude 1234"), "ACADEMIA");
 
         usuario2.aprovar(usuario1);
 
         usuarioRepository.save(usuario1);
         usuarioRepository.save(usuario2);
+    }
+
+    private void loadProjetos() {
+        Projeto projeto1 = new Projeto("789 - ACADEMIA TECH");
+        Projeto projeto2 = new Projeto("876 - BOOTCAMP");
+
+        projetoRepository.save(projeto1);
+        projetoRepository.save(projeto2);
     }
 
 }
