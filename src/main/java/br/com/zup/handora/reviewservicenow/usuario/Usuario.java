@@ -25,6 +25,9 @@ public class Usuario {
     @Column(nullable = false)
     private String nome;
 
+    @Column(nullable = false)
+    private String email;
+
     @ElementCollection
     private Map<Long, String> notebooks;
 
@@ -43,8 +46,9 @@ public class Usuario {
     @Deprecated
     public Usuario() {}
 
-    public Usuario(String nome, Map<Long, String> notebooks, String pod) {
+    public Usuario(String nome, String email, Map<Long, String> notebooks, String pod) {
         this.nome = nome;
+        this.email = email;
         this.notebooks = notebooks;
         this.pod = pod;
     }

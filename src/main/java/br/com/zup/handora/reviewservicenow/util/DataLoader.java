@@ -33,8 +33,12 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadUsuarios() {
-        Usuario usuario1 = new Usuario("Marina", Map.of(4321L, "Dell Latitude 1234"), "ACADEMIA");
-        Usuario usuario2 = new Usuario("Thiago", Map.of(4321L, "Dell Latitude 1234"), "ACADEMIA");
+        Usuario usuario1 = new Usuario(
+            "Marina", "marina@zup.com.br", Map.of(4321L, "Dell Latitude 1234"), "ACADEMIA"
+        );
+        Usuario usuario2 = new Usuario(
+            "Thiago", "thiago@zup.com.br", Map.of(4321L, "Dell Latitude 1234"), "ACADEMIA"
+        );
 
         usuarioRepository.save(usuario1);
         usuarioRepository.save(usuario2);
