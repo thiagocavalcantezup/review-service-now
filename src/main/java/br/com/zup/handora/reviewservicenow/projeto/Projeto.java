@@ -32,4 +32,8 @@ public class Projeto {
         return id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
 }

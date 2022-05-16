@@ -37,7 +37,7 @@ public class SolicitacaoDeAcesso {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private RespostaPCD respostaPCD;
+    private RespostaPCD respostaPcd;
 
     @Column(nullable = false)
     private String emNomeDe;
@@ -55,15 +55,16 @@ public class SolicitacaoDeAcesso {
     @Deprecated
     public SolicitacaoDeAcesso() {}
 
-    public SolicitacaoDeAcesso(String solicitante, String notebook, String aprovador, String pod,
-                               String projeto, RespostaPCD respostaPCD, String emNomeDe,
+    public SolicitacaoDeAcesso(String solicitante, String email, String notebook, String aprovador,
+                               String pod, String projeto, RespostaPCD respostaPcd, String emNomeDe,
                                TipoSolicitacao tipoSolicitacao, String funcao) {
         this.solicitante = solicitante;
+        this.email = email;
         this.notebook = notebook;
         this.aprovador = aprovador;
         this.pod = pod;
         this.projeto = projeto;
-        this.respostaPCD = respostaPCD;
+        this.respostaPcd = respostaPcd;
         this.emNomeDe = emNomeDe;
         this.tipoSolicitacao = tipoSolicitacao;
         this.funcao = funcao;

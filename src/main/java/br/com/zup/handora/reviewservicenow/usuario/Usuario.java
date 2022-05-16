@@ -62,6 +62,26 @@ public class Usuario {
         return id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Map<Long, String> getNotebooks() {
+        return notebooks;
+    }
+
+    public String getPod() {
+        return pod;
+    }
+
+    public Usuario getAprovador() {
+        return aprovador;
+    }
+
     public void setAprovador(Usuario aprovador) {
         this.aprovador = aprovador;
     }
