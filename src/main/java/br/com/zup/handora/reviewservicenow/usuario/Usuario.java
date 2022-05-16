@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,13 +25,13 @@ public class Usuario {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false)
+    @ElementCollection
     private Map<Long, String> notebooks;
 
     @Column(nullable = false)
     private String pod;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Usuario aprovador;
 
     @OneToMany(mappedBy = "aprovador")
