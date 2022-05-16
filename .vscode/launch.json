@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ReviewServiceNowApplication<review-service-now>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "br.com.zup.handora.reviewservicenow.ReviewServiceNowApplication",
+      "projectName": "review-service-now",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
