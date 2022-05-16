@@ -1,4 +1,6 @@
-package br.com.zup.handora.reviewservicenow;
+package br.com.zup.handora.reviewservicenow.util;
+
+import java.util.Map;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -23,9 +25,13 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void load() {
-        Usuario usuario = new Usuario("Thiago", "ACADEMY", "Maria");
+        Usuario usuario1 = new Usuario("Thiago", Map.of(4321L, "Dell Latitude 1234"), "ACADEMY");
+        Usuario usuario2 = new Usuario("Martina", Map.of(4321L, "Dell Latitude 1234"), "ACADEMY");
 
-        usuarioRepository.save(usuario);
+        usuario2.aprovar(usuario1);
+
+        usuarioRepository.save(usuario1);
+        usuarioRepository.save(usuario2);
     }
 
 }
