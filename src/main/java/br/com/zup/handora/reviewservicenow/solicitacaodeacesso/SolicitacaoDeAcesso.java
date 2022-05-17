@@ -54,6 +54,10 @@ public class SolicitacaoDeAcesso {
     @Column(nullable = false)
     private LocalDateTime criadoEm = LocalDateTime.now();
 
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private EstadoSolicitacao estadoSolicitacao = EstadoSolicitacao.ABERTA;
+
     /**
      * @deprecated Construtor de uso exclusivo do Hibernate
      */
@@ -78,6 +82,10 @@ public class SolicitacaoDeAcesso {
 
     public Long getId() {
         return id;
+    }
+
+    public void encerrar() {
+        estadoSolicitacao = EstadoSolicitacao.ENCERRADA;
     }
 
 }

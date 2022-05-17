@@ -6,7 +6,11 @@ Apresentação da review com base em um template
 
 ### TODO
 
-- Anexos
-- Listar por POD
-- Listar por Projeto
-- Listar por Tipo de Solicitação
+- Adicionar anexos
+- Listar por
+  - POD
+  - Projeto
+  - Tipo de Solicitação
+  - Estado
+- Adicionar permissões para remover e encerrar solilcitações
+- Adicionar atividade

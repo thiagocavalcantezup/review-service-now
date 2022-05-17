@@ -10,5 +10,6 @@ CREATE TABLE solicitacoes_de_acesso (
   em_nome_de VARCHAR(255) NOT NULL,
   tipo_solicitacao VARCHAR(255) NOT NULL,
   funcao VARCHAR(255) NOT NULL,
-  criado_em TIMESTAMP NOT NULL
+  criado_em TIMESTAMP NOT NULL,
+  estado_solicitacao VARCHAR(255) NOT NULL
 )
