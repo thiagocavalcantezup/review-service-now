@@ -1,5 +1,7 @@
 package br.com.zup.handora.reviewservicenow.solicitacaodeacesso;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -18,7 +20,7 @@ public class SolicitacaoDeAcesso {
     private Long id;
 
     @Column(nullable = false)
-    private String solicitante;
+    private String nomeSolicitante;
 
     @Column(nullable = false)
     private String email;
@@ -27,7 +29,7 @@ public class SolicitacaoDeAcesso {
     private String notebook;
 
     @Column(nullable = false)
-    private String aprovador;
+    private String nomeAprovador;
 
     @Column(nullable = false)
     private String pod;
@@ -49,19 +51,23 @@ public class SolicitacaoDeAcesso {
     @Column(nullable = false)
     private String funcao;
 
+    @Column(nullable = false)
+    private LocalDateTime criadoEm = LocalDateTime.now();
+
     /**
      * @deprecated Construtor de uso exclusivo do Hibernate
      */
     @Deprecated
     public SolicitacaoDeAcesso() {}
 
-    public SolicitacaoDeAcesso(String solicitante, String email, String notebook, String aprovador,
-                               String pod, String projeto, RespostaPCD respostaPcd, String emNomeDe,
+    public SolicitacaoDeAcesso(String nomeSolicitante, String email, String notebook,
+                               String nomeAprovador, String pod, String projeto,
+                               RespostaPCD respostaPcd, String emNomeDe,
                                TipoSolicitacao tipoSolicitacao, String funcao) {
-        this.solicitante = solicitante;
+        this.nomeSolicitante = nomeSolicitante;
         this.email = email;
         this.notebook = notebook;
-        this.aprovador = aprovador;
+        this.nomeAprovador = nomeAprovador;
         this.pod = pod;
         this.projeto = projeto;
         this.respostaPcd = respostaPcd;

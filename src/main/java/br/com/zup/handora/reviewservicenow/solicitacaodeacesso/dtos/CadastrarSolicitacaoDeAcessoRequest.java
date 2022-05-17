@@ -1,4 +1,4 @@
-package br.com.zup.handora.reviewservicenow.solicitacaodeacesso;
+package br.com.zup.handora.reviewservicenow.solicitacaodeacesso.dtos;
 
 import java.util.Optional;
 
@@ -10,10 +10,13 @@ import org.springframework.web.server.ResponseStatusException;
 
 import br.com.zup.handora.reviewservicenow.projeto.Projeto;
 import br.com.zup.handora.reviewservicenow.projeto.ProjetoRepository;
+import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.RespostaPCD;
+import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.SolicitacaoDeAcesso;
+import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.TipoSolicitacao;
 import br.com.zup.handora.reviewservicenow.usuario.Usuario;
 import br.com.zup.handora.reviewservicenow.usuario.UsuarioRepository;
 
-public class SolicitacaoDeAcessoCadastrarRequest {
+public class CadastrarSolicitacaoDeAcessoRequest {
 
     @NotNull
     @Positive
@@ -38,9 +41,9 @@ public class SolicitacaoDeAcessoCadastrarRequest {
 
     private String funcao;
 
-    public SolicitacaoDeAcessoCadastrarRequest() {}
+    public CadastrarSolicitacaoDeAcessoRequest() {}
 
-    public SolicitacaoDeAcessoCadastrarRequest(@NotNull @Positive Long solicitanteId,
+    public CadastrarSolicitacaoDeAcessoRequest(@NotNull @Positive Long solicitanteId,
                                                @Positive Long notebookId,
                                                @NotNull @Positive Long projetoId,
                                                @NotNull RespostaPCD respostaPCD,
