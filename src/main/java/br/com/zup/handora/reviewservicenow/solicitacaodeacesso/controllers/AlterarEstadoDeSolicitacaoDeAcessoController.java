@@ -4,7 +4,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,20 +14,20 @@ import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.SolicitacaoDeAces
 import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.SolicitacaoDeAcessoRepository;
 
 @RestController
-@RequestMapping(RemoverSolicitacaoDeAcessoController.BASE_URI + "/{id}")
-public class RemoverSolicitacaoDeAcessoController {
+@RequestMapping(AlterarEstadoDeSolicitacaoDeAcessoController.BASE_URI + "/{id}")
+public class AlterarEstadoDeSolicitacaoDeAcessoController {
 
     public final static String BASE_URI = "/solicitacoes-de-acesso";
 
     private final SolicitacaoDeAcessoRepository sdaRepository;
 
-    public RemoverSolicitacaoDeAcessoController(SolicitacaoDeAcessoRepository sdaRepository) {
+    public AlterarEstadoDeSolicitacaoDeAcessoController(SolicitacaoDeAcessoRepository sdaRepository) {
         this.sdaRepository = sdaRepository;
     }
 
     @Transactional
-    @DeleteMapping
-    public ResponseEntity<Void> remover(@PathVariable Long id) {
+    @PatchMapping("/encerrar")
+    public ResponseEntity<Void> encerrar(@PathVariable Long id) {
         SolicitacaoDeAcesso sda = sdaRepository.findById(id)
                                                .orElseThrow(
                                                    () -> new ResponseStatusException(
@@ -36,7 +36,23 @@ public class RemoverSolicitacaoDeAcessoController {
                                                    )
                                                );
 
-        sdaRepository.delete(sda);
+        sda.encerrar();
+
+        return ResponseEntity.noContent().build();
+    }
+
+    @Transactional
+    @PatchMapping("/reabrir")
+    public ResponseEntity<Void> reabrir(@PathVariable Long id) {
+        SolicitacaoDeAcesso sda = sdaRepository.findById(id)
+                                               .orElseThrow(
+                                                   () -> new ResponseStatusException(
+                                                       HttpStatus.NOT_FOUND,
+                                                       "Não existe uma solicitação de acesso com o id informado."
+                                                   )
+                                               );
+
+        sda.reabrir();
 
         return ResponseEntity.noContent().build();
     }

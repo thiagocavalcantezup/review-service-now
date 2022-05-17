@@ -11,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
 import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.enums.EstadoSolicitacao;
 import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.enums.RespostaPCD;
 import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.enums.TipoSolicitacao;
@@ -88,8 +91,32 @@ public class SolicitacaoDeAcesso {
         return id;
     }
 
+    public boolean isEncerrada() {
+        return estadoSolicitacao.equals(EstadoSolicitacao.ENCERRADA);
+    }
+
+    public boolean isAberta() {
+        return estadoSolicitacao.equals(EstadoSolicitacao.ABERTA);
+    }
+
     public void encerrar() {
+        if (isEncerrada()) {
+            throw new ResponseStatusException(
+                HttpStatus.UNPROCESSABLE_ENTITY, "A solicitação já está encerrada."
+            );
+        }
+
         estadoSolicitacao = EstadoSolicitacao.ENCERRADA;
+    }
+
+    public void reabrir() {
+        if (isAberta()) {
+            throw new ResponseStatusException(
+                HttpStatus.UNPROCESSABLE_ENTITY, "A solicitação já está aberta."
+            );
+        }
+
+        estadoSolicitacao = EstadoSolicitacao.ABERTA;
     }
 
 }
