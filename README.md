@@ -6,14 +6,15 @@ Apresentação da review com base em um template
 
 ### TODO
 
-- Adicionar anexos
 - Listar por
   - POD
   - Projeto
   - Tipo de Solicitação
   - Estado
+- Adicionar paginação para listas
+- Adicionar anexos
 - Adicionar permissões para remover e encerrar solilcitações
 - Adicionar atividade
-- Adicionar paginação para listas
 - Novos tipos de solicitação
 - Novas possibilidades de estados
+- Integrar a API com os serviços da Zup (usuários, projetos etc.)
