@@ -11,6 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.enums.EstadoSolicitacao;
+import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.enums.RespostaPCD;
+import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.enums.TipoSolicitacao;
+
 @Entity
 @Table(name = "solicitacoes_de_acesso")
 public class SolicitacaoDeAcesso {

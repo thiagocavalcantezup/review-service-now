@@ -10,9 +10,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import br.com.zup.handora.reviewservicenow.projeto.Projeto;
 import br.com.zup.handora.reviewservicenow.projeto.ProjetoRepository;
-import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.RespostaPCD;
 import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.SolicitacaoDeAcesso;
-import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.TipoSolicitacao;
+import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.enums.RespostaPCD;
+import br.com.zup.handora.reviewservicenow.solicitacaodeacesso.enums.TipoSolicitacao;
 import br.com.zup.handora.reviewservicenow.usuario.Usuario;
 import br.com.zup.handora.reviewservicenow.usuario.UsuarioRepository;
 
