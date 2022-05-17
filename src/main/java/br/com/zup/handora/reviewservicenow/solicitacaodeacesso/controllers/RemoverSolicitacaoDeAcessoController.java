@@ -27,7 +27,7 @@ public class RemoverSolicitacaoDeAcessoController {
 
     @Transactional
     @DeleteMapping
-    public ResponseEntity<Void> remover(@PathVariable Long id) {
+    public ResponseEntity<?> remover(@PathVariable Long id) {
         SolicitacaoDeAcesso sda = sdaRepository.findById(id)
                                                .orElseThrow(
                                                    () -> new ResponseStatusException(

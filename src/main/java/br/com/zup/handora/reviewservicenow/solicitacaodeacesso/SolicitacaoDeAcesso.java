@@ -87,10 +87,6 @@ public class SolicitacaoDeAcesso {
         this.funcao = funcao;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public boolean isEncerrada() {
         return estadoSolicitacao.equals(EstadoSolicitacao.ENCERRADA);
     }
@@ -117,6 +113,58 @@ public class SolicitacaoDeAcesso {
         }
 
         estadoSolicitacao = EstadoSolicitacao.ABERTA;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNomeSolicitante() {
+        return nomeSolicitante;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNotebook() {
+        return notebook;
+    }
+
+    public String getNomeAprovador() {
+        return nomeAprovador;
+    }
+
+    public String getPod() {
+        return pod;
+    }
+
+    public String getProjeto() {
+        return projeto;
+    }
+
+    public RespostaPCD getRespostaPcd() {
+        return respostaPcd;
+    }
+
+    public String getEmNomeDe() {
+        return emNomeDe;
+    }
+
+    public TipoSolicitacao getTipoSolicitacao() {
+        return tipoSolicitacao;
+    }
+
+    public String getFuncao() {
+        return funcao;
+    }
+
+    public LocalDateTime getCriadoEm() {
+        return criadoEm;
+    }
+
+    public EstadoSolicitacao getEstadoSolicitacao() {
+        return estadoSolicitacao;
     }
 
 }
