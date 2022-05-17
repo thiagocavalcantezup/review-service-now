@@ -14,3 +14,4 @@ Apresentação da review com base em um template
   - Estado
 - Adicionar permissões para remover e encerrar solilcitações
 - Adicionar atividade
+- Adicionar paginação para listas
